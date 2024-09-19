@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: rgb(218, 226, 231);
+}
+#buttons {
+    display: flex;
+    gap: 15px;
+}
+button {
+    background-color: rgb(34, 33, 33);
+    color: white;
+    border: none;
+    outline: none;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+}
+.toastBox {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    padding: 0 20px;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 70%;
+}
+.toastBox div {
+    background-color: white;
+    height: 80px;
+    max-width: 100%;
+    width: 400px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 18px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 10, 10, 0.3);
+    margin: 30px 0;
+}
+@keyframes fromLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.toastBox div::after {
+    content: ' ';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    animation: bar 5s linear forwards;
+}
+@keyframes bar {
+    100% {
+        width: 0;
+    }
+}
+.toast {
+    animation: fromLeft .5s ease;
+}
+.toast i {
+    font-size: 30px;
+    margin-right: 20px;
+}
+.success::after {
+    background-color: green;
+}
+.success i {
+    color:green;
+
+}
+.error::after {
+    background-color: red;
+}
+.error i {
+    color:red;
+}
+.invalid::after {
+    background-color: orange;
+}
+.invalid i {
+    color: orange;
+}
+
+footer {
+    position: absolute;
+    bottom: 15px;
+    background-color: white;
+    border: 3px solid white;
+    padding: 7px 15px 7px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: .4s ease-in-out all;
+    margin-top: 20px;
+    max-width: 90%;
+}
+footer:hover {
+    cursor: pointer;
+    border: 3px solid white;
+    background-color: rgba(255, 255, 255, 0);
+    transform: scale(1.1);
+}
+a {
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+    font-weight: 600;
+}
+#twitter {
+    width: 18px;
+    height: 20px;
+}
+.whatsapp, .github {
+    font-size: 20px;
+}
+
+@media (max-width: 370px) {
+    .toastBox {
+        right: 0px;
+        bottom: 0px;
+        margin: auto;
+        max-height: 80%;
+        border: 2px solid black;
+    }
+}
